@@ -157,8 +157,8 @@ class DOMDocumentWrapper {
 		}
 		// Should be careful here, still need 'magic encoding detection' since lots of pages have other 'default encoding'
 		// Worse, some pages can have mixed encodings... we'll try not to worry about that
-		$requestedCharset = strtoupper($requestedCharset);
-		$documentCharset = strtoupper($documentCharset);
+		if($requestedCharset) $requestedCharset = strtoupper($requestedCharset);
+		if($documentCharset) $documentCharset = strtoupper($documentCharset);
 		phpQuery::debug("DOC: $documentCharset REQ: $requestedCharset");
 		if ($requestedCharset && $documentCharset && $requestedCharset !== $documentCharset) {
 			phpQuery::debug("CHARSET CONVERT");
