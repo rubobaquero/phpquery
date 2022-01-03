@@ -1672,9 +1672,11 @@ class phpQueryObject
 	 * @return phpQueryObject|QueryTemplatesSource|QueryTemplatesParse|QueryTemplatesSourceQuery
 	 * @deprecated Use length as attribute
 	 */
+	#[\ReturnTypeWillChange]
 	public function length() {
 		return $this->size();
 	}
+	#[\ReturnTypeWillChange]
 	public function count() {
 		return $this->size();
 	}
@@ -2989,6 +2991,7 @@ class phpQueryObject
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind(){
 		$this->debug('iterating foreach');
 //		phpQuery::selectDocument($this->getDocumentID());
@@ -3004,12 +3007,14 @@ class phpQueryObject
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function current(){
 		return $this->elementsInterator[ $this->current ];
 	}
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function key(){
 		return $this->current;
 	}
@@ -3024,6 +3029,7 @@ class phpQueryObject
 	 * @see phpQueryObject::_next()
 	 * @return phpQueryObject|QueryTemplatesSource|QueryTemplatesParse|QueryTemplatesSourceQuery
 	 */
+	#[\ReturnTypeWillChange]
 	public function next($cssSelector = null){
 //		if ($cssSelector || $this->valid)
 //			return $this->_next($cssSelector);
@@ -3041,6 +3047,7 @@ class phpQueryObject
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid(){
 		return $this->valid;
 	}
@@ -3049,18 +3056,21 @@ class phpQueryObject
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetExists($offset) {
 		return $this->find($offset)->size() > 0;
 	}
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetGet($offset) {
 		return $this->find($offset);
 	}
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetSet($offset, $value) {
 //		$this->find($offset)->replaceWith($value);
 		$this->find($offset)->html($value);
@@ -3068,6 +3078,7 @@ class phpQueryObject
 	/**
    * @access private
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetUnset($offset) {
 		// empty
 		throw new Exception("Can't do unset, use array interface only for calling queries and replacing HTML.");
