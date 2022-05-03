@@ -2648,6 +2648,8 @@ class phpQueryObject
 				foreach($node->attributes as $n => $v)
 					$return[$n] = $v->value;
 				return $return;
+			} else if ($attr == null) {
+				return null
 			} else
 				return $node->hasAttribute($attr)
 					? $node->getAttribute($attr)
