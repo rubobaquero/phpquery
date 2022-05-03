@@ -2649,7 +2649,7 @@ class phpQueryObject
 					$return[$n] = $v->value;
 				return $return;
 			} else if ($attr == null) {
-				return null
+				return null;
 			} else
 				return $node->hasAttribute($attr)
 					? $node->getAttribute($attr)
